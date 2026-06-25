@@ -49,13 +49,13 @@ export default function Contact() {
               </a>
 
               <a
-                href="tel:+601153065973"
+                href="tel:+601126028990"
                 className="flex items-center gap-3 text-gray-300 hover:text-gold transition-colors group"
               >
                 <div className="w-9 h-9 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
                   <Phone size={15} className="text-gold" />
                 </div>
-                <span className="text-sm">+6011 5306 5973</span>
+                <span className="text-sm">011-2602 8990</span>
               </a>
 
               <a
