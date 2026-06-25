@@ -28,6 +28,13 @@ const timeline = [
   },
 ]
 
+const languages = [
+  { lang: 'English', level: 'Full Professional' },
+  { lang: 'Bahasa Malaysia', level: 'Full Professional' },
+  { lang: 'Mandarin', level: 'Conversational' },
+  { lang: 'Cantonese', level: 'Conversational' },
+]
+
 export default function About() {
   return (
     <section id="about" className="py-24 px-6 bg-cream">
@@ -44,18 +51,32 @@ export default function About() {
 
         {/* Bio split */}
         <div className="grid md:grid-cols-2 gap-12 items-start mb-20">
-          {/* Photo placeholder */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="w-64 h-72 rounded-2xl bg-grey-light border-2 border-gold/30 flex items-center justify-center text-center p-6 shadow-sm">
+          {/* Photo placeholder — task #1: clearly marked for swap */}
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <div className="w-64 h-72 rounded-2xl bg-grey-light border-2 border-dashed border-gold/40 flex items-center justify-center text-center p-6 shadow-sm">
               <div>
                 <div className="text-4xl mb-3">📸</div>
                 <p className="text-xs text-grey-muted font-semibold">[ Headshot goes here ]</p>
-                <p className="text-xs text-grey-muted mt-1 opacity-70">Replace with real photo</p>
+                <p className="text-xs text-grey-muted mt-1 opacity-70">
+                  Replace src with real photo path
+                </p>
+              </div>
+            </div>
+            {/* Language callout — task #6 */}
+            <div className="w-full max-w-xs">
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Communicates In</p>
+              <div className="flex flex-wrap gap-2">
+                {languages.map((l) => (
+                  <div key={l.lang} className="bg-white border border-grey-light rounded-xl px-3 py-2 text-center shadow-sm">
+                    <p className="text-xs font-bold text-navy">{l.lang}</p>
+                    <p className="text-xs text-grey-muted mt-0.5">{l.level}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Bio text */}
+          {/* Bio text — task #10: positioning gap addressed */}
           <div>
             <h3 className="text-xl font-semibold text-navy mb-4">
               Corporate Communications Professional
@@ -65,10 +86,7 @@ export default function About() {
               The kind that makes people stop scrolling, actually read, and walk away understanding something better.
             </p>
             <p className="text-grey-muted leading-relaxed mb-4">
-              Over 4 years across PETRONAS and Allianz Malaysia, I've handled everything from stakeholder
-              newsletters and employee branding to campaign management, video production, and leadership reporting.
-              I've managed high-stakes communications under pressure, coordinated 10+ campaigns end-to-end,
-              and written content that earned commendations from Heads of Department with minimal amendments.
+              My career spans strategic communications, stakeholder engagement, and brand-led campaign management across two of Malaysia's most recognised organisations. At PETRONAS, I handled internal communications, content strategy, and employee campaigns at scale. At Allianz Malaysia, I moved into customer-facing corporate communications — managing 10+ campaigns end-to-end, writing high-stakes regulatory correspondence, and representing the company's voice across digital and traditional channels.
             </p>
             <p className="text-grey-muted leading-relaxed mb-8">
               Trilingual in English, Bahasa Malaysia, and Mandarin — which means I don't just translate words,

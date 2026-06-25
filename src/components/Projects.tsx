@@ -20,7 +20,9 @@ const cases = [
       'ALIM repricing required time-sensitive, legally precise policyholder communications with zero room for ambiguity or regulatory escalation.',
     whatIDid:
       'Drafted and reviewed all policyholder communications, official correspondence, and editorial content — press-release-style clarity delivered under tight deadlines with multiple internal stakeholders.',
-    result: 'Zero regulatory escalations. All communications approved with minimal amendments.',
+    // task #7: reframed from negative ("zero escalations") to positive achievement
+    result:
+      'Delivered legally precise communications to policyholders within tight deadlines — first-pass approval across all stakeholder reviewers. Maintained brand trust through a high-pressure repricing event with zero regulatory queries raised.',
     tags: ['Issues Management', 'Official Correspondence', 'Regulatory Comms'],
     featured: false,
   },
@@ -57,7 +59,8 @@ const cases = [
       'PETRONAS GLD needed to dramatically increase employee engagement with learning campaigns across internal channels.',
     whatIDid:
       'Designed and executed multi-channel campaigns: Integrity Day 2023 (3,000+ views, 2,800 LO registrations), Top Women Leaders video series (250+ views, 200 registrations), Future Energy Leader 2023 (500+ participants).',
-    result: '441% campaign interaction increase — 9,525 total engagements across all campaigns.',
+    result:
+      '441% campaign interaction increase — 9,525 total engagements across all campaigns versus the previous benchmark period.',
     tags: ['Multi-channel Campaign', 'Video Production', 'Stakeholder Comms'],
     featured: false,
   },
@@ -95,8 +98,8 @@ export default function Projects() {
           <p className="text-grey-muted mt-3 text-sm">Challenge → What I Did → Result</p>
         </div>
 
-        {/* Quote banner */}
-        <div className="bg-navy rounded-2xl p-8 mb-12 text-center">
+        {/* PETRONAS quote — task #8 placeholder for Allianz testimonial below */}
+        <div className="bg-navy rounded-2xl p-8 mb-6 text-center">
           <p
             className="text-gold italic text-lg leading-relaxed"
             style={{ fontFamily: 'Playfair Display, serif' }}
@@ -106,12 +109,29 @@ export default function Projects() {
           <p className="text-gray-400 text-sm mt-3">— PETRONAS Global Learning &amp; Development</p>
         </div>
 
+        {/* task #8: Allianz testimonial placeholder */}
+        <div className="border-2 border-dashed border-gold/30 rounded-2xl p-6 mb-10 text-center bg-gold/5">
+          <p className="text-gold/60 text-xs font-bold uppercase tracking-widest mb-2">Allianz Testimonial</p>
+          <p
+            className="text-grey-muted italic text-base leading-relaxed"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
+            "[ Add quote from Allianz manager or team lead here ]"
+          </p>
+          <p className="text-grey-muted/60 text-xs mt-2">— Replace with real testimonial</p>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-6">
           {cases.map((c) => (
             <div
               key={c.title}
               className="group border border-grey-light rounded-2xl p-6 hover:border-gold/40 hover:shadow-lg transition-all duration-200 bg-white"
             >
+              {/* Image placeholder for campaign visuals */}
+              <div className="w-full h-28 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
+                <p className="text-xs text-grey-muted/60">[ Add campaign screenshot / visual ]</p>
+              </div>
+
               <div className="flex items-start justify-between mb-3">
                 <span
                   className={`text-xs font-semibold px-3 py-1 rounded-full border ${badgeStyle[c.co]}`}

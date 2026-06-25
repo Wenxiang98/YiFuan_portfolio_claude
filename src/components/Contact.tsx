@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Download } from 'lucide-react'
 
 const LinkedinIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
@@ -30,6 +30,30 @@ export default function Contact() {
           <p className="text-gray-400 mt-3 max-w-md mx-auto text-sm leading-relaxed">
             Open to corporate communications roles in Kuala Lumpur and beyond.
           </p>
+        </div>
+
+        {/* Resume download banner — task #2 */}
+        <div className="bg-gold rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <p
+              className="font-bold text-navy text-lg"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              Download My Resume
+            </p>
+            <p className="text-navy/70 text-sm mt-1">
+              Full CV with experience, education, and skills
+            </p>
+          </div>
+          {/* Place resume PDF in /public/resume.pdf to activate this button */}
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 bg-navy text-gold font-semibold px-6 py-3 rounded-full text-sm hover:bg-navy-light transition-colors whitespace-nowrap"
+          >
+            <Download size={15} />
+            Download CV
+          </a>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">

@@ -152,6 +152,14 @@ export default function VideoDesign() {
                 key={v.title}
                 className="bg-navy rounded-2xl p-7 border border-gold/20 flex flex-col gap-4"
               >
+                {/* Video thumbnail placeholder — replace with actual thumbnail image */}
+                <div className="w-full aspect-video bg-navy-light border border-dashed border-gold/20 rounded-xl flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">🎬</div>
+                    <p className="text-xs text-gray-500">[ Add video thumbnail ]</p>
+                  </div>
+                </div>
+
                 <div>
                   <span className="text-xs text-gold/80 font-medium">{v.badge}</span>
                   <h3
@@ -232,6 +240,14 @@ export default function VideoDesign() {
                 key={d.title}
                 className="bg-white rounded-2xl p-6 border border-grey-light hover:border-gold/30 hover:shadow-sm transition-all"
               >
+                {/* Design screenshot placeholder — replace with actual image */}
+                <div className="w-full aspect-video bg-grey-light/60 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">🖼️</div>
+                    <p className="text-xs text-grey-muted/60">[ Add design screenshot ]</p>
+                  </div>
+                </div>
+
                 <div className="mb-3">
                   <h4 className="text-sm font-bold text-navy">{d.title}</h4>
                   <p className="text-xs text-gold/80 font-medium mt-0.5">{d.client}</p>

@@ -7,10 +7,10 @@ const LinkedinIcon = () => (
 )
 
 const stats = [
-  { value: '4+', label: 'Years' },
-  { value: '10+', label: 'Campaigns' },
-  { value: '441%', label: 'Interaction Increase' },
-  { value: '3', label: 'Languages' },
+  { value: '4+', label: 'Years Experience', note: 'PETRONAS & Allianz' },
+  { value: '10+', label: 'Campaigns Managed', note: 'End-to-end delivery' },
+  { value: '441%', label: 'Campaign Engagement ↑', note: '9,525 engagements' },
+  { value: '3', label: 'Languages', note: 'EN · BM · Mandarin' },
 ]
 
 export default function Hero() {
@@ -27,10 +27,10 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Available badge */}
+        {/* Badge — task #4: softened tone */}
         <div className="inline-flex items-center gap-2 bg-navy-light border border-gold/30 text-gold text-xs font-medium px-4 py-2 rounded-full mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-          Available for opportunities
+          Open to the right opportunity
         </div>
 
         {/* Name label */}
@@ -68,7 +68,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats bar */}
+        {/* Stats bar — task #5: added note row for 441% context, task #6: languages note */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14 max-w-2xl mx-auto">
           {stats.map((s) => (
             <div key={s.label} className="bg-navy-light border border-gold/20 rounded-xl px-4 py-4">
@@ -78,7 +78,8 @@ export default function Hero() {
               >
                 {s.value}
               </div>
-              <div className="text-xs text-gray-400 mt-1">{s.label}</div>
+              <div className="text-xs text-gray-300 mt-1 font-medium">{s.label}</div>
+              <div className="text-xs text-gray-500 mt-0.5">{s.note}</div>
             </div>
           ))}
         </div>
