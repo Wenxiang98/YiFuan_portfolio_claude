@@ -47,11 +47,6 @@ export default function Hero() {
           <em className="text-gold not-italic">actually want to read.</em>
         </h1>
 
-        {/* Tagline */}
-        <p className="text-lg md:text-xl text-gray-400 font-light mb-10 max-w-2xl mx-auto">
-          4 years. 2 iconic companies. 10+ campaigns. 1 trilingual communicator.
-        </p>
-
         {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
           <a

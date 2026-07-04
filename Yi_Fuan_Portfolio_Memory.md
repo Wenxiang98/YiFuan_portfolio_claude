@@ -96,9 +96,6 @@ Corporate communications professional, 4+ years experience at PETRONAS and Allia
 ### Hero Headline
 > "I turn complex ideas into communications people *actually want to read.*"
 
-### Tagline
-> "4 years. 2 iconic companies. 10+ campaigns. 1 trilingual communicator."
-
 ---
 
 ## 5. PORTFOLIO SITE STRUCTURE — 6 PAGES
