@@ -1,3 +1,9 @@
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+)
+
 const featured = [
   {
     title: 'Tech Women in PETRONAS',
@@ -12,6 +18,7 @@ const featured = [
     ],
     role: 'Lead Producer · Videographer · Coordinator · Script Writer · Storyboarding · Graphic Set Creation · Final Editing',
     tools: ['Sony a6400 ×2', 'Premiere Pro', 'After Effects', 'Illustrator'],
+    linkedinPosts: [] as { label: string; url: string }[],
   },
   {
     title: 'PETRONAS 50th Anniversary Video Series',
@@ -21,7 +28,23 @@ const featured = [
     leaders: [],
     role: 'Interview Framework Design · Leader Direction · Script Review & Alignment',
     tools: ['Premiere Pro', 'After Effects'],
+    linkedinPosts: [
+      {
+        label: 'PETRONAS 50th: Technopreneurship Spotlight',
+        url: 'https://www.linkedin.com/posts/petronas_petronas-passionateaboutprogress-petronas50-activity-7273864342847000576-upjw',
+      },
+      {
+        label: 'PETRONAS 50th: Technopreneurship Leaders',
+        url: 'https://www.linkedin.com/posts/petronas_petronas-passionateaboutprogress-petronas50-activity-7282931601162838016--HkI',
+      },
+    ],
   },
+]
+
+const fuellingSuccessVideos = [
+  { id: '0NMnjZq1zGg' },
+  { id: 'SyM5pFoveI5Q' },
+  { id: '_ApB3xLAFyA' },
 ]
 
 const otherVideos = [
@@ -195,6 +218,32 @@ export default function VideoDesign() {
                   <p className="text-gray-300 text-xs leading-relaxed">{v.role}</p>
                 </div>
 
+                {v.linkedinPosts.length > 0 && (
+                  <div>
+                    <p className="text-gold text-xs font-semibold uppercase tracking-wide mb-2">
+                      As Seen On LinkedIn
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      {v.linkedinPosts.map((post) => (
+                        <a
+                          key={post.url}
+                          href={post.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-2 text-xs text-gray-300 hover:text-gold transition-colors group"
+                        >
+                          <span className="w-6 h-6 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors text-gold">
+                            <LinkedInIcon />
+                          </span>
+                          <span className="underline underline-offset-2 decoration-gold/30 group-hover:decoration-gold">
+                            {post.label}
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-gold/10">
                   {v.tools.map((t) => (
                     <span
@@ -205,6 +254,34 @@ export default function VideoDesign() {
                     </span>
                   ))}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Fuelling Success Playlist */}
+        <div className="mb-16">
+          <p className="text-navy text-xs font-bold uppercase tracking-widest mb-2">
+            Fuelling Success
+          </p>
+          <p className="text-grey-muted text-xs mb-6">
+            Video case study playlist produced for PETRONAS.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {fuellingSuccessVideos.map((v, i) => (
+              <div key={v.id} className="rounded-2xl overflow-hidden border border-gold/20 bg-navy">
+                <div className="aspect-video">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}`}
+                    title={`Fuelling Success — Episode ${i + 1}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+                <p className="text-gold/70 text-xs font-medium px-4 py-2">
+                  Episode {i + 1}
+                </p>
               </div>
             ))}
           </div>
