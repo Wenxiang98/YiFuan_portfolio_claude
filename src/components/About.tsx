@@ -1,8 +1,8 @@
 const stats = [
-  { label: 'Years Experience', value: '4+' },
-  { label: 'Campaigns Managed', value: '10+' },
-  { label: 'Interaction Increase', value: '441%' },
-  { label: 'NPS Score (VoC)', value: '4.56' },
+  { label: 'NPS Score (VoC)', value: '4.56', note: 'AGIC Above Market' },
+  { label: 'Videos Produced', value: '15+', note: 'Concept to final cut' },
+  { label: "CGPA · Dean's List ×6", value: '3.80', note: 'University of Malaya' },
+  { label: 'New Users in 1 Month', value: '1,112', note: 'Single email campaign' },
 ]
 
 const timeline = [
@@ -107,7 +107,8 @@ export default function About() {
                   >
                     {s.value}
                   </div>
-                  <div className="text-xs text-grey-muted mt-1">{s.label}</div>
+                  <div className="text-xs font-semibold text-navy mt-1">{s.label}</div>
+                  <div className="text-xs text-grey-muted mt-0.5">{s.note}</div>
                 </div>
               ))}
             </div>
