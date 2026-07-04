@@ -78,9 +78,6 @@ export default function About() {
 
           {/* Bio text — task #10: positioning gap addressed */}
           <div>
-            <h3 className="text-xl font-semibold text-navy mb-4">
-              Corporate Communications Professional
-            </h3>
             <p className="text-grey-muted leading-relaxed mb-4">
               I'm Yi Fuan — and I genuinely love the craft of communications. Not the corporate-speak version.
               The kind that makes people stop scrolling, actually read, and walk away understanding something better.

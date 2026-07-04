@@ -14,7 +14,7 @@
 - **Current portfolio (Google Sites):** sites.google.com/view/yifuanporttfolio (note: URL has typo — double "t")
 
 ### Profile
-Corporate communications professional, 4+ years experience at PETRONAS and Allianz Malaysia. Trilingual: English, Bahasa Malaysia, Mandarin (conversational Cantonese). Targeting roles in corporate communications, strategic communications, PR, and brand management.
+ 4+ years experience at PETRONAS and Allianz Malaysia. Trilingual: English, Bahasa Malaysia, Mandarin (conversational Cantonese). Targeting roles in corporate communications, strategic communications, PR, and brand management.
 
 ---
 
@@ -95,7 +95,7 @@ Corporate communications professional, 4+ years experience at PETRONAS and Allia
 
 ### Hero Headline
 > "I turn complex ideas into communications people *actually want to read.*"
-
+gz
 ---
 
 ## 5. PORTFOLIO SITE STRUCTURE — 6 PAGES
@@ -353,7 +353,7 @@ Kuala Lumpur, Malaysia | yfuan81@gmail.com | +6011 5306 5973 | LinkedIn
 ## 12. NOTES FOR CLAUDE CODE
 
 ### What to build
-A professional portfolio website for Chew Yi Fuan, corporate communications professional, Kuala Lumpur.
+A professional portfolio website for Chew Yi Fuan, Kuala Lumpur.
 
 ### Tech stack recommendation
 - **Simple:** Pure HTML/CSS/JS (multi-page, no framework needed)
