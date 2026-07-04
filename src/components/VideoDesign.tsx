@@ -18,6 +18,7 @@ const featured = [
     ],
     role: 'Lead Producer · Videographer · Coordinator · Script Writer · Storyboarding · Graphic Set Creation · Final Editing',
     tools: ['Sony a6400 ×2', 'Premiere Pro', 'After Effects', 'Illustrator'],
+    fuellingSuccessVideos: [] as string[],
     linkedinPosts: [] as { label: string; url: string }[],
   },
   {
@@ -28,6 +29,7 @@ const featured = [
     leaders: [],
     role: 'Interview Framework Design · Leader Direction · Script Review & Alignment',
     tools: ['Premiere Pro', 'After Effects'],
+    fuellingSuccessVideos: ['0NMnjZq1zGg', 'SyM5pFoveI5Q', '_ApB3xLAFyA'],
     linkedinPosts: [
       {
         label: 'PETRONAS 50th: Technopreneurship Spotlight',
@@ -39,12 +41,6 @@ const featured = [
       },
     ],
   },
-]
-
-const fuellingSuccessVideos = [
-  { id: '0NMnjZq1zGg' },
-  { id: 'SyM5pFoveI5Q' },
-  { id: '_ApB3xLAFyA' },
 ]
 
 const otherVideos = [
@@ -218,6 +214,27 @@ export default function VideoDesign() {
                   <p className="text-gray-300 text-xs leading-relaxed">{v.role}</p>
                 </div>
 
+                {v.fuellingSuccessVideos.length > 0 && (
+                  <div>
+                    <p className="text-gold text-xs font-semibold uppercase tracking-wide mb-2">
+                      Fuelling Success · Case Study Playlist
+                    </p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {v.fuellingSuccessVideos.map((id, i) => (
+                        <div key={id} className="rounded-xl overflow-hidden bg-black aspect-video">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${id}`}
+                            title={`Fuelling Success — Episode ${i + 1}`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {v.linkedinPosts.length > 0 && (
                   <div>
                     <p className="text-gold text-xs font-semibold uppercase tracking-wide mb-2">
@@ -254,34 +271,6 @@ export default function VideoDesign() {
                     </span>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Fuelling Success Playlist */}
-        <div className="mb-16">
-          <p className="text-navy text-xs font-bold uppercase tracking-widest mb-2">
-            Fuelling Success
-          </p>
-          <p className="text-grey-muted text-xs mb-6">
-            Video case study playlist produced for PETRONAS.
-          </p>
-          <div className="grid md:grid-cols-3 gap-4">
-            {fuellingSuccessVideos.map((v, i) => (
-              <div key={v.id} className="rounded-2xl overflow-hidden border border-gold/20 bg-navy">
-                <div className="aspect-video">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${v.id}`}
-                    title={`Fuelling Success — Episode ${i + 1}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-                <p className="text-gold/70 text-xs font-medium px-4 py-2">
-                  Episode {i + 1}
-                </p>
               </div>
             ))}
           </div>
