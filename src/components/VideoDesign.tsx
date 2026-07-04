@@ -18,6 +18,7 @@ const featured = [
     ],
     role: 'Lead Producer · Videographer · Coordinator · Script Writer · Storyboarding · Graphic Set Creation · Final Editing',
     tools: ['Sony a6400 ×2', 'Premiere Pro', 'After Effects', 'Illustrator'],
+    thumbnailUrl: '',
     fuellingSuccessVideos: [] as string[],
     linkedinPosts: [] as { label: string; url: string }[],
   },
@@ -29,6 +30,7 @@ const featured = [
     leaders: [],
     role: 'Interview Framework Design · Leader Direction · Script Review & Alignment',
     tools: ['Premiere Pro', 'After Effects'],
+    thumbnailUrl: 'https://img.youtube.com/vi/_hbj9sHAFX4/hqdefault.jpg',
     fuellingSuccessVideos: ['0NMnjZq1zGg', 'SyM5pFoveI5Q', '_ApB3xLAFyA'],
     linkedinPosts: [
       {
@@ -171,13 +173,20 @@ export default function VideoDesign() {
                 key={v.title}
                 className="bg-navy rounded-2xl p-7 border border-gold/20 flex flex-col gap-4"
               >
-                {/* Video thumbnail placeholder — replace with actual thumbnail image */}
-                <div className="w-full aspect-video bg-navy-light border border-dashed border-gold/20 rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-2xl mb-1">🎬</div>
-                    <p className="text-xs text-gray-500">[ Add video thumbnail ]</p>
+                {v.thumbnailUrl ? (
+                  <img
+                    src={v.thumbnailUrl}
+                    alt={`${v.title} thumbnail`}
+                    className="w-full aspect-video object-cover rounded-xl"
+                  />
+                ) : (
+                  <div className="w-full aspect-video bg-navy-light border border-dashed border-gold/20 rounded-xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🎬</div>
+                      <p className="text-xs text-gray-500">[ Add video thumbnail ]</p>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div>
                   <span className="text-xs text-gold/80 font-medium">{v.badge}</span>
