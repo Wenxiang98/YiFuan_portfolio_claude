@@ -115,8 +115,30 @@ export default function About() {
           </div>
         </div>
 
+        {/* Career timeline */}
+        <div className="rounded-2xl bg-navy p-8 mb-8">
+          <p className="text-gold text-xs font-bold uppercase tracking-widest mb-6">Career Timeline</p>
+          <div className="space-y-6">
+            {timeline.map((t, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-3 h-3 rounded-full bg-gold mt-1 flex-shrink-0" />
+                  {i < timeline.length - 1 && (
+                    <div className="w-px flex-1 bg-gold/20 mt-2" />
+                  )}
+                </div>
+                <div className="pb-2">
+                  <p className="text-gold text-xs font-medium mb-0.5">{t.period}</p>
+                  <p className="text-white font-semibold text-sm">{t.role}</p>
+                  <p className="text-gray-400 text-xs mt-0.5">{t.company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Education strip */}
-        <div className="rounded-2xl bg-gold p-8 mb-8">
+        <div className="rounded-2xl bg-gold p-8">
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-1">
               <p className="text-navy text-xs font-bold uppercase tracking-widest mb-1">Education</p>
@@ -140,28 +162,6 @@ export default function About() {
                 )
               )}
             </div>
-          </div>
-        </div>
-
-        {/* Career timeline */}
-        <div className="rounded-2xl bg-navy p-8">
-          <p className="text-gold text-xs font-bold uppercase tracking-widest mb-6">Career Timeline</p>
-          <div className="space-y-6">
-            {timeline.map((t, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-3 h-3 rounded-full bg-gold mt-1 flex-shrink-0" />
-                  {i < timeline.length - 1 && (
-                    <div className="w-px flex-1 bg-gold/20 mt-2" />
-                  )}
-                </div>
-                <div className="pb-2">
-                  <p className="text-gold text-xs font-medium mb-0.5">{t.period}</p>
-                  <p className="text-white font-semibold text-sm">{t.role}</p>
-                  <p className="text-gray-400 text-xs mt-0.5">{t.company}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
