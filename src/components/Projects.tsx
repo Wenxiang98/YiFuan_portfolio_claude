@@ -12,6 +12,8 @@ const cases = [
     tags: ['Campaign Management', 'Multi-channel', 'WhatsApp', 'EDM'],
     campaigns: ['Experience10 × 4 Editions', 'HealthAssured Conversion', 'Malaysia Day', 'Allianz Carnival JB', 'Voice of Allianz NPS', 'Allianz 25th Anniversary'],
     highlight: 'First WhatsApp Broadcast channel at Allianz — built from scratch',
+    image: '/slides/slide1_redacted.jpeg',
+    imageAlt: 'Allianz campaign communications calendar spanning multiple channels and months',
     featured: true,
   },
   {
@@ -22,12 +24,13 @@ const cases = [
       'ALIM repricing required time-sensitive, legally precise policyholder communications with zero room for ambiguity or regulatory escalation.',
     whatIDid:
       'Drafted and reviewed all policyholder communications, official correspondence, and editorial content — press-release-style clarity delivered under tight deadlines with multiple internal stakeholders.',
-    // task #7: reframed from negative ("zero escalations") to positive achievement
     result:
       'Delivered legally precise communications to policyholders within tight deadlines — first-pass approval across all stakeholder reviewers. Maintained brand trust through a high-pressure repricing event with zero regulatory queries raised.',
     tags: ['Issues Management', 'Official Correspondence', 'Regulatory Comms'],
     campaigns: [],
     highlight: '',
+    image: '/slides/slide3_redacted.jpeg',
+    imageAlt: 'Campaign performance report showing multi-channel results and tracking',
     featured: false,
   },
   {
@@ -43,6 +46,8 @@ const cases = [
     tags: ['Educational Content', 'Bahasa Malaysia', 'Copywriting'],
     campaigns: [],
     highlight: '',
+    image: '/slides/slide2_redacted.jpeg',
+    imageAlt: 'Sample Allianz customer EDM — Experience10 campaign email design',
     featured: false,
   },
   {
@@ -57,6 +62,8 @@ const cases = [
     tags: ['Internal Comms', 'Email Campaign', 'Platform Adoption'],
     campaigns: [],
     highlight: '',
+    image: '',
+    imageAlt: '',
     featured: true,
   },
   {
@@ -72,6 +79,8 @@ const cases = [
     tags: ['Multi-channel Campaign', 'Video Production', 'Stakeholder Comms'],
     campaigns: [],
     highlight: '',
+    image: '',
+    imageAlt: '',
     featured: false,
   },
   {
@@ -86,6 +95,8 @@ const cases = [
     tags: ['Event Comms', 'Stakeholder Mapping', 'Graphic Design'],
     campaigns: [],
     highlight: '',
+    image: '',
+    imageAlt: '',
     featured: false,
   },
 ]
@@ -139,10 +150,19 @@ export default function Projects() {
               key={c.title}
               className="group border border-grey-light rounded-2xl p-6 hover:border-gold/40 hover:shadow-lg transition-all duration-200 bg-white"
             >
-              {/* Image placeholder for campaign visuals */}
-              <div className="w-full h-28 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
-                <p className="text-xs text-grey-muted/60">[ Add campaign screenshot / visual ]</p>
-              </div>
+              {c.image ? (
+                <div className="w-full h-40 rounded-xl overflow-hidden mb-4 border border-grey-light">
+                  <img
+                    src={c.image}
+                    alt={c.imageAlt}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              ) : (
+                <div className="w-full h-28 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
+                  <p className="text-xs text-grey-muted/60">[ Add campaign screenshot / visual ]</p>
+                </div>
+              )}
 
               {c.highlight && (
                 <div className="flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-xl px-3 py-2 mb-3">
