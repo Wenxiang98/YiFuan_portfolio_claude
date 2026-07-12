@@ -126,6 +126,8 @@ const graphicDesign = [
       '/graphic-design/ramadan-kareem.jpeg',
       '/graphic-design/we-have-moved.jpeg',
       '/graphic-design/learning-community.jpeg',
+      '/graphic-design/hrd-award-2023.jpeg',
+      '/graphic-design/clo-award-2023.jpeg',
     ] as string[],
   },
   {
