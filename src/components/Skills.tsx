@@ -149,6 +149,29 @@ const creativeTools = [
       </svg>
     ),
   },
+  {
+    name: 'Power BI',
+    bg: '#1a1a1a',
+    color: '#F2C811',
+    icon: (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+        <rect x="4" y="14" width="3" height="6" rx="0.5" fill="#F2C811"/>
+        <rect x="9" y="9" width="3" height="11" rx="0.5" fill="#F2C811" opacity="0.8"/>
+        <rect x="14" y="4" width="3" height="16" rx="0.5" fill="#F2C811" opacity="0.6"/>
+        <rect x="19" y="7" width="2" height="13" rx="0.5" fill="#F2C811" opacity="0.4"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'Excel',
+    bg: '#1D6F42',
+    color: '#FFFFFF',
+    icon: (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+        <text x="3" y="17" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="13" fill="#FFFFFF">Ex</text>
+      </svg>
+    ),
+  },
 ]
 
 export default function Skills() {
