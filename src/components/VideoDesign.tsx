@@ -188,6 +188,9 @@ const graphicDesign = [
       '/graphic-design/msr-ir-congrats-eo-tulips.jpeg',
       '/graphic-design/msr-ir-congrats-mrcsb-sandals.jpeg',
       '/graphic-design/msr-ir-congrats-pptsb-firefly.jpeg',
+      '/graphic-design/msr-ir-congrats-petco-bird.jpeg',
+      '/graphic-design/msr-ir-congrats-pptsb-turtle2.jpeg',
+      '/graphic-design/msr-ir-congrats-petco-eagle.jpeg',
     ] as string[],
   },
   {
