@@ -150,6 +150,22 @@ const graphicDesign = [
     tags: ['Campaign Design', 'Stakeholder Comms', 'Internship'],
     gallery: [] as string[],
   },
+  {
+    title: 'OE R2 Multi-OU Internal Comms',
+    client: 'PETRONAS R&T Transformation Office · 2021',
+    scope: 'Internship · Multi-OU Distribution',
+    description:
+      'Internal communications suite designed for different Organisational Units under the R&T Transformation Office — congratulatory announcements in multiple visual styles (light, dark, retro), event speaker banners, and festive communications distributed across OUs.',
+    formats: ['Congratulatory Cards', 'Event Banners', 'Festival Comms'],
+    tags: ['Internal Comms', 'Multi-OU', 'Internship'],
+    gallery: [
+      '/graphic-design/rt-congratulations-light.jpeg',
+      '/graphic-design/rt-congratulations-dark.jpeg',
+      '/graphic-design/rt-congratulations-retro.jpeg',
+      '/graphic-design/rt-speak-up-event.jpeg',
+      '/graphic-design/rt-raya-ketupat.jpeg',
+    ] as string[],
+  },
 ]
 
 const scriptDocs = [
