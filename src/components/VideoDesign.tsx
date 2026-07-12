@@ -18,7 +18,7 @@ const featured = [
     ],
     role: 'Lead Producer · Videographer · Coordinator · Script Writer · Storyboarding · Graphic Set Creation · Final Editing',
     tools: ['Sony a6400 ×2', 'Premiere Pro', 'After Effects', 'Illustrator'],
-    thumbnailUrl: '',
+    thumbnailUrl: '/thumbnails/tech-women-petronas.jpeg',
     fuellingSuccessVideos: [] as string[],
     linkedinPosts: [
       {
@@ -178,7 +178,28 @@ export default function VideoDesign() {
                 key={v.title}
                 className="bg-navy rounded-2xl p-7 border border-gold/20 flex flex-col gap-4"
               >
-                {v.thumbnailUrl ? (
+                {v.thumbnailUrl && v.linkedinPosts.length > 0 ? (
+                  <a
+                    href={v.linkedinPosts[0].url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block relative group/thumb rounded-xl overflow-hidden"
+                  >
+                    <img
+                      src={v.thumbnailUrl}
+                      alt={`${v.title} thumbnail`}
+                      className="w-full aspect-video object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover/thumb:bg-black/30 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center gap-1.5 bg-[#0A66C2] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow">
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        View on LinkedIn
+                      </span>
+                    </div>
+                  </a>
+                ) : v.thumbnailUrl ? (
                   <img
                     src={v.thumbnailUrl}
                     alt={`${v.title} thumbnail`}
