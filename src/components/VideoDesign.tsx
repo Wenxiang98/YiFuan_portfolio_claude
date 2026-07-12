@@ -169,12 +169,12 @@ function LeaderStillCarousel({ images }: { images: string[] }) {
   const next = useCallback(() => setIdx((i) => (i + 1) % images.length), [images.length])
 
   return (
-    <div className="relative rounded-xl overflow-hidden bg-[#1a0a2e] group/lsc">
+    <div className="relative rounded-xl overflow-hidden bg-[#1a0a2e] group/lsc aspect-video">
       <img
         key={idx}
         src={images[idx]}
         alt={`Leader still ${idx + 1}`}
-        className="w-full aspect-video object-cover"
+        className="w-full h-full object-contain"
       />
       {images.length > 1 && (
         <>
