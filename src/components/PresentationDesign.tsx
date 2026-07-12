@@ -24,15 +24,15 @@ const slides = [
     featured: false,
   },
   {
-    src: '/slides/pptx_cover.jpeg',
-    label: 'Portfolio Case Study Cover',
-    desc: 'Multi-channel loyalty campaign — original planning, journey mapping and reporting slides rebuilt with data anonymised.',
+    src: '/slides/pptx_sentiment.jpeg',
+    label: 'NPS Sentiment by Segment',
+    desc: 'Promoter, Passive, and Detractor distribution broken down across Overall, Segment A, Segment B, and Common — with callout insight flagging repricing-related feedback volume and the headline finding that 3 in 5 customers rated us 9 or 10.',
     featured: false,
   },
   {
-    src: '/slides/pptx_takeaways.jpeg',
-    label: 'Strategic Takeaways',
-    desc: 'Closing reflection on Structure, Evidence, and Clarity — the three principles that shaped the campaign approach.',
+    src: '/slides/pptx_segmentation.jpeg',
+    label: 'Passive Customer Segmentation',
+    desc: 'Behavioural profile of passive customers across three lenses — agent agency, policy count, and customer tenure. Headline finding: same agency, single policy, 10+ years tenured. Insight fed directly into the next campaign\'s targeting logic and reward structure.',
     featured: false,
   },
 ]
