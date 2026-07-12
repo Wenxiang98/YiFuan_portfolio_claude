@@ -129,16 +129,6 @@ const graphicDesign = [
     ] as string[],
   },
   {
-    title: 'PETRONAS Digital Day 2023 — Event Collaterals',
-    client: 'PETRONAS GLD · 2023',
-    scope: '1,500+ visitors · 1,000+ platform activations',
-    description:
-      'End-to-end visual identity for PETRONAS Digital Day 2023 — event badges, pull-up banners, on-site signage, and promotional materials. Coordinated graphic production across departments to deliver a cohesive look for a high-visibility 2-day internal flagship event.',
-    formats: ['Event Signage', 'Print Collaterals', 'Promotional Materials'],
-    tags: ['Event Graphics', 'Brand Collateral', 'Stakeholder Event'],
-    gallery: [] as string[],
-  },
-  {
     title: 'HSSE Forced Labour Awareness Posters',
     client: 'PETRONAS Downstream · 2022',
     scope: 'Published · HSSE Heartbeat Newsletter & SharePoint',
@@ -290,7 +280,9 @@ export default function VideoDesign() {
                 key={v.title}
                 className="bg-navy rounded-2xl p-7 border border-gold/20 flex flex-col gap-4"
               >
-                {v.thumbnailUrl && v.linkedinPosts.length > 0 ? (
+                {v.leaderStills && v.leaderStills.length > 0 ? (
+                  <LeaderStillCarousel images={v.leaderStills} />
+                ) : v.thumbnailUrl && v.linkedinPosts.length > 0 ? (
                   <a
                     href={v.linkedinPosts[0].url}
                     target="_blank"
@@ -350,23 +342,19 @@ export default function VideoDesign() {
 
                 <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
 
-                {v.leaders.length > 0 && (
+                {v.leaders.length > 0 && !(v.leaderStills && v.leaderStills.length > 0) && (
                   <div>
                     <p className="text-gold text-xs font-semibold uppercase tracking-wide mb-2">
                       Featured Leaders
                     </p>
-                    {v.leaderStills && v.leaderStills.length > 0 ? (
-                      <LeaderStillCarousel images={v.leaderStills} />
-                    ) : (
-                      <ul className="space-y-1">
-                        {v.leaders.map((l) => (
-                          <li key={l} className="text-gray-300 text-xs flex gap-2">
-                            <span className="text-gold mt-0.5">·</span>
-                            {l}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <ul className="space-y-1">
+                      {v.leaders.map((l) => (
+                        <li key={l} className="text-gray-300 text-xs flex gap-2">
+                          <span className="text-gold mt-0.5">·</span>
+                          {l}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
 
