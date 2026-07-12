@@ -25,6 +25,8 @@ const cases = [
       '/banners/banner-rate-allianz-10.jpeg',
       '/banners/banner-rate-us-10.jpeg',
       '/banners/banner-badminton-2026.jpeg',
+      '/banners/banner-healthassured.jpeg',
+      '/banners/banner-web-of-wonders.jpeg',
     ],
     link: '',
   },
