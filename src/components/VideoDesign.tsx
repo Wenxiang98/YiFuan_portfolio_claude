@@ -160,6 +160,20 @@ const graphicDesign = [
     ] as string[],
   },
   {
+    title: 'MSR Implementation Review — OU Support Communications',
+    client: 'PETRONAS Refinery & Trading · 2021',
+    scope: 'Internship · Transformation Office · Multi-OU',
+    description:
+      'Motivational support visuals sent to different Operating Units (PP(T)SB, MRCSB) ahead of their OEMS Implementation Reviews — wishing them well and encouraging them through the Plan-Do-Check-Act cycle.',
+    formats: ['OU Support Cards', 'Internal Comms', 'Digital Distribution'],
+    tags: ['MSR', 'Implementation Review', 'OU Support'],
+    gallery: [
+      '/graphic-design/msr-ir-allthebest-pptsb.jpeg',
+      '/graphic-design/msr-ir-allthebest-mrcsb.jpeg',
+      '/graphic-design/msr-ir-rooting-pptsb.jpeg',
+    ] as string[],
+  },
+  {
     title: 'OE R2 Multi-OU Internal Comms',
     client: 'PETRONAS R&T Transformation Office · 2021',
     scope: 'Internship · Multi-OU Distribution',
@@ -168,11 +182,11 @@ const graphicDesign = [
     formats: ['Congratulatory Cards', 'Event Banners', 'Festival Comms'],
     tags: ['Internal Comms', 'Multi-OU', 'Internship'],
     gallery: [
+      '/graphic-design/rt-congratulations-dark.jpeg',
       '/graphic-design/rt-golive-f1-photo.jpeg',
       '/graphic-design/rt-golive-refinery.jpeg',
       '/graphic-design/rt-golive-f1-art.jpeg',
       '/graphic-design/rt-congratulations-light.jpeg',
-      '/graphic-design/rt-congratulations-dark.jpeg',
       '/graphic-design/rt-congratulations-retro.jpeg',
       '/graphic-design/rt-congratulations-mrcsb.jpeg',
       '/graphic-design/rt-allthebest-mrcsb.jpeg',
@@ -405,7 +419,7 @@ function ScriptDocCard({
 
 export default function VideoDesign() {
   return (
-    <section id="video-design" className="py-24 px-6 bg-cream">
+    <section id="video-design" className="pt-24 pb-10 px-6 bg-cream">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
