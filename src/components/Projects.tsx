@@ -120,20 +120,20 @@ function BannerCarousel({ images }: { images: string[] }) {
 
   if (images.length === 0) {
     return (
-      <div className="w-full h-44 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
+      <div className="w-full h-52 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
         <p className="text-xs text-grey-muted/60">[ Add campaign banners — see banners[] in Projects.tsx ]</p>
       </div>
     )
   }
 
   return (
-    <div className="relative w-full h-44 rounded-xl overflow-hidden mb-4 bg-grey-light group/carousel">
+    <div className="relative w-full h-52 rounded-xl overflow-hidden mb-4 bg-gray-100 group/carousel">
       {/* Slides */}
       <img
         key={idx}
         src={images[idx]}
         alt={`Campaign banner ${idx + 1}`}
-        className="w-full h-full object-cover object-center transition-opacity duration-300"
+        className="w-full h-full object-contain transition-opacity duration-300"
       />
 
       {/* Prev / Next arrows — visible on hover */}
