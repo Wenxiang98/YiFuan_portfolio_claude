@@ -26,6 +26,7 @@ const cases = [
       '/banners/banner-rate-us-10.jpeg',
       '/banners/banner-badminton-2026.jpeg',
     ],
+    link: '',
   },
   {
     company: 'Allianz Malaysia',
@@ -42,6 +43,7 @@ const cases = [
     highlight: '',
     featured: false,
     banners: [] as string[],
+    link: '',
   },
   {
     company: 'Allianz Malaysia',
@@ -57,7 +59,8 @@ const cases = [
     campaigns: [],
     highlight: '',
     featured: false,
-    banners: [] as string[],
+    banners: ['/banners/banner-ringgitku.jpeg'] as string[],
+    link: 'https://www.ringgitku.my/2025/03/26/punca-tuntutan-insurans-ditolak-cara-mengelakkannya/',
   },
   {
     company: 'PETRONAS GLD',
@@ -73,6 +76,7 @@ const cases = [
     highlight: '',
     featured: true,
     banners: [] as string[],
+    link: '',
   },
   {
     company: 'PETRONAS GLD',
@@ -89,6 +93,7 @@ const cases = [
     highlight: '',
     featured: false,
     banners: [] as string[],
+    link: '',
   },
   {
     company: 'PETRONAS GLD',
@@ -104,6 +109,7 @@ const cases = [
     highlight: '',
     featured: false,
     banners: [] as string[],
+    link: '',
   },
 ]
 
@@ -112,7 +118,7 @@ const badgeStyle: Record<string, string> = {
   petronas: 'bg-emerald-50 text-emerald-800 border-emerald-200',
 }
 
-function BannerCarousel({ images }: { images: string[] }) {
+function BannerCarousel({ images, link }: { images: string[]; link?: string }) {
   const [idx, setIdx] = useState(0)
 
   const prev = useCallback(() => setIdx((i) => (i - 1 + images.length) % images.length), [images.length])
@@ -178,6 +184,22 @@ function BannerCarousel({ images }: { images: string[] }) {
           </div>
         </>
       )}
+
+      {/* Read Article link */}
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="absolute bottom-2 right-2 flex items-center gap-1 bg-white/90 hover:bg-white text-navy text-[10px] font-semibold px-2.5 py-1 rounded-full shadow transition-colors duration-150"
+        >
+          Read Article
+          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      )}
     </div>
   )
 }
@@ -226,7 +248,7 @@ export default function Projects() {
               key={c.title}
               className="group border border-grey-light rounded-2xl p-6 hover:border-gold/40 hover:shadow-lg transition-all duration-200 bg-white"
             >
-              <BannerCarousel images={c.banners} />
+              <BannerCarousel images={c.banners} link={c.link} />
 
               {c.highlight && (
                 <div className="flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-xl px-3 py-2 mb-3">
