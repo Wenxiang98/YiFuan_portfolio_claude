@@ -171,6 +171,8 @@ const graphicDesign = [
       '/graphic-design/msr-ir-allthebest-pptsb.jpeg',
       '/graphic-design/msr-ir-allthebest-mrcsb.jpeg',
       '/graphic-design/msr-ir-rooting-pptsb.jpeg',
+      '/graphic-design/msr-ir-youcan-pptsb.jpeg',
+      '/graphic-design/msr-ir-allthebest-eo.jpeg',
     ] as string[],
   },
   {
