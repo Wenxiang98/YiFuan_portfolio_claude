@@ -21,6 +21,12 @@ const featured = [
     role: 'Lead Producer · Videographer · Coordinator · Script Writer · Storyboarding · Graphic Set Creation · Final Editing',
     tools: ['Sony a6400 ×2', 'Premiere Pro', 'After Effects', 'Illustrator'],
     thumbnailUrl: '/thumbnails/tech-women-petronas.jpeg',
+    leaderStills: [
+      '/thumbnails/tech-women-nenisurya.jpeg',
+      '/thumbnails/tech-women-norhazlina.jpeg',
+      '/thumbnails/tech-women-noriani.jpeg',
+      '/thumbnails/tech-women-suhaileen.jpeg',
+    ],
     fuellingSuccessVideos: [] as string[],
     linkedinPosts: [
       {
@@ -38,6 +44,7 @@ const featured = [
     role: 'Interview Framework Design · Leader Direction · Script Review & Alignment',
     tools: ['Premiere Pro', 'After Effects'],
     thumbnailUrl: 'https://img.youtube.com/vi/_hbj9sHAFX4/hqdefault.jpg',
+    leaderStills: [] as string[],
     fuellingSuccessVideos: ['0NMnjZq1zGg', 'SyM5pFoveI5Q', '_ApB3xLAFyA'],
     linkedinPosts: [
       {
@@ -165,6 +172,48 @@ const productionTools = [
   'Filmora',
   'Sony a6400 ×2',
 ]
+
+function LeaderStillCarousel({ images }: { images: string[] }) {
+  const [idx, setIdx] = useState(0)
+  const prev = useCallback(() => setIdx((i) => (i - 1 + images.length) % images.length), [images.length])
+  const next = useCallback(() => setIdx((i) => (i + 1) % images.length), [images.length])
+
+  return (
+    <div className="relative rounded-xl overflow-hidden bg-[#1a0a2e] group/lsc">
+      <img
+        key={idx}
+        src={images[idx]}
+        alt={`Leader still ${idx + 1}`}
+        className="w-full aspect-video object-cover"
+      />
+      {images.length > 1 && (
+        <>
+          <button onClick={prev} aria-label="Previous leader"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center opacity-0 group-hover/lsc:opacity-100 transition-opacity">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button onClick={next} aria-label="Next leader"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center opacity-0 group-hover/lsc:opacity-100 transition-opacity">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+            {images.map((_, i) => (
+              <button key={i} onClick={() => setIdx(i)} aria-label={`Go to leader ${i + 1}`}
+                className={`rounded-full transition-all duration-200 ${i === idx ? 'w-4 h-1.5 bg-white' : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/75'}`} />
+            ))}
+          </div>
+          <div className="absolute top-2 right-2 bg-black/50 text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+            {idx + 1} / {images.length}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 function DesignCarousel({ images, title }: { images: string[]; title: string }) {
   const [idx, setIdx] = useState(0)
@@ -306,14 +355,18 @@ export default function VideoDesign() {
                     <p className="text-gold text-xs font-semibold uppercase tracking-wide mb-2">
                       Featured Leaders
                     </p>
-                    <ul className="space-y-1">
-                      {v.leaders.map((l) => (
-                        <li key={l} className="text-gray-300 text-xs flex gap-2">
-                          <span className="text-gold mt-0.5">·</span>
-                          {l}
-                        </li>
-                      ))}
-                    </ul>
+                    {v.leaderStills && v.leaderStills.length > 0 ? (
+                      <LeaderStillCarousel images={v.leaderStills} />
+                    ) : (
+                      <ul className="space-y-1">
+                        {v.leaders.map((l) => (
+                          <li key={l} className="text-gray-300 text-xs flex gap-2">
+                            <span className="text-gold mt-0.5">·</span>
+                            {l}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 )}
 
