@@ -53,15 +53,11 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-start mb-20">
           {/* Photo placeholder — task #1: clearly marked for swap */}
           <div className="flex flex-col items-center md:items-start gap-4">
-            <div className="w-64 h-72 rounded-2xl bg-grey-light border-2 border-dashed border-gold/40 flex items-center justify-center text-center p-6 shadow-sm">
-              <div>
-                <div className="text-4xl mb-3">📸</div>
-                <p className="text-xs text-grey-muted font-semibold">[ Headshot goes here ]</p>
-                <p className="text-xs text-grey-muted mt-1 opacity-70">
-                  Replace src with real photo path
-                </p>
-              </div>
-            </div>
+            <img
+              src="/headshot.jpeg"
+              alt="Yi Fuan"
+              className="w-64 h-72 rounded-2xl object-cover object-top shadow-sm"
+            />
             {/* Language callout — task #6 */}
             <div className="w-full max-w-xs">
               <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Communicates In</p>
