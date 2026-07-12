@@ -1,32 +1,38 @@
 const slides = [
   {
-    src: '/slides/slide5_redacted.jpeg',
-    label: 'Executive Performance Overview',
-    desc: 'High-level campaign results summary structured for leadership review',
+    src: '/slides/pptx_performance.jpeg',
+    label: 'Performance Over Time',
+    desc: 'KPI panel + cumulative participation chart annotated with each channel send — showing how every EDM and WhatsApp blast produced a measurable step-up.',
     featured: true,
   },
   {
-    src: '/slides/slide1_redacted.jpeg',
+    src: '/slides/pptx_calendar.jpeg',
     label: 'Campaign Comms Calendar',
-    desc: 'Multi-channel planning across EDM, WhatsApp Broadcast, and digital ads',
+    desc: 'Full send schedule mapped across three months — EDM, SMS, WhatsApp, and paid social sequenced by segment.',
     featured: false,
   },
   {
-    src: '/slides/slide4_redacted.jpeg',
-    label: 'Data Visualisation — Campaign Results',
-    desc: 'Chart-based performance breakdown for stakeholder reporting',
+    src: '/slides/pptx_channel.jpeg',
+    label: 'Channel Performance Breakdown',
+    desc: 'Open rate vs participation rate by channel — localised-language EDMs converted at nearly double the standard rate.',
     featured: false,
   },
   {
-    src: '/slides/slide3_redacted.jpeg',
-    label: 'Campaign Performance Report',
-    desc: 'Structured reporting across multiple campaign touchpoints',
+    src: '/slides/pptx_overview.jpeg',
+    label: 'Campaign Overview Dashboard',
+    desc: 'Timeline of all channel sends overlaid with daily participation — built for leadership review at campaign mid-point.',
     featured: false,
   },
   {
-    src: '/slides/slide2_redacted.jpeg',
-    label: 'Customer Communication Sample',
-    desc: 'Experience10 series EDM — copy and layout for direct customer engagement',
+    src: '/slides/pptx_cover.jpeg',
+    label: 'Portfolio Case Study Cover',
+    desc: 'Multi-channel loyalty campaign — original planning, journey mapping and reporting slides rebuilt with data anonymised.',
+    featured: false,
+  },
+  {
+    src: '/slides/pptx_takeaways.jpeg',
+    label: 'Strategic Takeaways',
+    desc: 'Closing reflection on Structure, Evidence, and Clarity — the three principles that shaped the campaign approach.',
     featured: false,
   },
 ]
@@ -35,12 +41,10 @@ function SlideFrame({
   src,
   label,
   desc,
-  filename,
 }: {
   src: string
   label: string
   desc: string
-  filename?: string
 }) {
   return (
     <div className="group">
@@ -54,10 +58,10 @@ function SlideFrame({
             <div className="w-3 h-3 rounded-full bg-[#28C840]" />
           </div>
           <span className="text-[#888] text-[10px] font-medium mx-auto truncate">
-            {filename ?? 'Allianz Campaign Presentation.pptx — PowerPoint'}
+            Portfolio Deck v2 — PowerPoint
           </span>
         </div>
-        {/* Slide canvas area */}
+        {/* Slide canvas */}
         <div className="bg-[#404040] p-3 md:p-4">
           <div className="aspect-video bg-white overflow-hidden shadow-lg">
             <img
@@ -100,7 +104,7 @@ export default function PresentationDesign() {
           </p>
         </div>
 
-        {/* Context chip */}
+        {/* Context chips */}
         <div className="flex items-center justify-center gap-2 mb-10">
           <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-semibold px-3.5 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
@@ -113,14 +117,10 @@ export default function PresentationDesign() {
 
         {/* Featured slide — full width */}
         <div className="mb-8">
-          <SlideFrame
-            src={featured.src}
-            label={featured.label}
-            desc={featured.desc}
-          />
+          <SlideFrame src={featured.src} label={featured.label} desc={featured.desc} />
         </div>
 
-        {/* Thumbnail grid — 2 × 2 */}
+        {/* Thumbnail grid — 2 columns */}
         <div className="grid sm:grid-cols-2 gap-6">
           {thumbnails.map((s) => (
             <SlideFrame key={s.src} src={s.src} label={s.label} desc={s.desc} />
