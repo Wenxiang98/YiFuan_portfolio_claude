@@ -126,13 +126,7 @@ function BannerCarousel({ images, link }: { images: string[]; link?: string }) {
   const prev = useCallback(() => setIdx((i) => (i - 1 + images.length) % images.length), [images.length])
   const next = useCallback(() => setIdx((i) => (i + 1) % images.length), [images.length])
 
-  if (images.length === 0) {
-    return (
-      <div className="w-full h-52 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
-        <p className="text-xs text-grey-muted/60">[ Add campaign banners — see banners[] in Projects.tsx ]</p>
-      </div>
-    )
-  }
+  if (images.length === 0) return null
 
   return (
     <div className="relative w-full h-52 rounded-xl overflow-hidden mb-4 bg-gray-100 group/carousel">
@@ -221,27 +215,25 @@ export default function Projects() {
           <p className="text-grey-muted mt-3 text-sm">Challenge → What I Did → Result</p>
         </div>
 
-        {/* PETRONAS quote — task #8 placeholder for Allianz testimonial below */}
-        <div className="bg-navy rounded-2xl p-8 mb-6 text-center">
-          <p
-            className="text-gold italic text-lg leading-relaxed"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            "Content produced with minimal amendments, receiving commendations from Heads of Department."
-          </p>
-          <p className="text-gray-400 text-sm mt-3">— PETRONAS Global Learning &amp; Development</p>
-        </div>
-
-        {/* task #8: Allianz testimonial placeholder */}
-        <div className="border-2 border-dashed border-gold/30 rounded-2xl p-6 mb-10 text-center bg-gold/5">
-          <p className="text-gold/60 text-xs font-bold uppercase tracking-widest mb-2">Allianz Testimonial</p>
-          <p
-            className="text-grey-muted italic text-base leading-relaxed"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            "[ Add quote from Allianz manager or team lead here ]"
-          </p>
-          <p className="text-grey-muted/60 text-xs mt-2">— Replace with real testimonial</p>
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
+          <div className="bg-navy rounded-2xl p-8 text-center">
+            <p
+              className="text-gold italic text-lg leading-relaxed"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              "Content produced with minimal amendments, receiving commendations from Heads of Department."
+            </p>
+            <p className="text-gray-400 text-sm mt-3">— PETRONAS Global Learning &amp; Development</p>
+          </div>
+          <div className="bg-navy rounded-2xl p-8 text-center">
+            <p
+              className="text-gold italic text-lg leading-relaxed"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              "Consistently impressed by her positive learning attitude, fast adaptability, and creative design output that elevates every project she touches."
+            </p>
+            <p className="text-gray-400 text-sm mt-3">— Manager, Allianz Malaysia</p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">

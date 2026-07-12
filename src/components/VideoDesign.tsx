@@ -20,7 +20,12 @@ const featured = [
     tools: ['Sony a6400 ×2', 'Premiere Pro', 'After Effects', 'Illustrator'],
     thumbnailUrl: '',
     fuellingSuccessVideos: [] as string[],
-    linkedinPosts: [] as { label: string; url: string }[],
+    linkedinPosts: [
+      {
+        label: 'Tech Women in PETRONAS — LinkedIn',
+        url: 'https://www.linkedin.com/posts/yi-fuan-chew-20_petroleumengineer-innovation-stem-activity-7117173379727601665-U0DG?utm_source=share&utm_medium=member_desktop&rcm=ACoAADO7rYIBvm8mKtISOPtbI8ca0b7sjEbm6ak',
+      },
+    ],
   },
   {
     title: 'PETRONAS 50th Anniversary Video Series',
@@ -179,6 +184,18 @@ export default function VideoDesign() {
                     alt={`${v.title} thumbnail`}
                     className="w-full aspect-video object-cover rounded-xl"
                   />
+                ) : v.linkedinPosts.length > 0 ? (
+                  <a
+                    href={v.linkedinPosts[0].url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full aspect-video bg-[#0A66C2]/10 border border-[#0A66C2]/30 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/50 transition-colors"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 text-[#0A66C2]">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    <span className="text-xs text-[#0A66C2] font-semibold">View on LinkedIn</span>
+                  </a>
                 ) : (
                   <div className="w-full aspect-video bg-navy-light border border-dashed border-gold/20 rounded-xl flex items-center justify-center">
                     <div className="text-center">
