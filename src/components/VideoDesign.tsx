@@ -333,13 +333,12 @@ function ScriptDocCard({
 
       {/* Image carousel viewer */}
       {slides.length > 0 && (
-        <div className="relative bg-gray-50 group/sdoc" style={{ minHeight: '480px', maxHeight: '600px' }}>
+        <div className="relative bg-gray-50 group/sdoc">
           <img
             key={slideIdx}
             src={slides[slideIdx]}
             alt={`${title} — page ${slideIdx + 1}`}
-            className="w-full h-full object-contain"
-            style={{ display: 'block', maxHeight: '600px' }}
+            className="w-full h-auto block"
           />
           {slides.length > 1 && (
             <>
