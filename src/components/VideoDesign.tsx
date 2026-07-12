@@ -105,13 +105,19 @@ const otherVideos = [
 
 const graphicDesign = [
   {
-    title: 'myLearningX Festival & Campaign Banners',
+    title: 'myLearningX Campaign & Internal Comms',
     client: 'PETRONAS GLD · 2022–2024',
     scope: '2-year engagement · Platform-wide distribution',
     description:
-      'Sustained two-year design output for PETRONAS GLD — recurring cultural festival banners (Hari Raya, Chinese New Year, Deepavali, Maulidur Rasul), campaign launch materials, and learning awareness posters distributed to PETRONAS employees nationwide via the myLearningX platform.',
-    formats: ['Festival Banners', 'Campaign Posters', 'Digital Assets'],
+      'Two-year design output for PETRONAS GLD — cultural festival banners (Hari Raya, Chinese New Year, Deepavali, World Water Day), platform migration announcements, and step-by-step instructional infographics distributed to PETRONAS employees nationwide via myLearningX.',
+    formats: ['Festival Banners', 'Internal Comms', 'Instructional Design'],
     tags: ['Campaign Design', 'Cultural Localisation', 'myLearningX'],
+    gallery: [
+      '/graphic-design/world-water-day.png',
+      '/graphic-design/ramadan-kareem.jpeg',
+      '/graphic-design/we-have-moved.jpeg',
+      '/graphic-design/learning-community.jpeg',
+    ] as string[],
   },
   {
     title: 'PETRONAS Digital Day 2023 — Event Collaterals',
@@ -121,6 +127,7 @@ const graphicDesign = [
       'End-to-end visual identity for PETRONAS Digital Day 2023 — event badges, pull-up banners, on-site signage, and promotional materials. Coordinated graphic production across departments to deliver a cohesive look for a high-visibility 2-day internal flagship event.',
     formats: ['Event Signage', 'Print Collaterals', 'Promotional Materials'],
     tags: ['Event Graphics', 'Brand Collateral', 'Stakeholder Event'],
+    gallery: [] as string[],
   },
   {
     title: 'HSSE Forced Labour Awareness Posters',
@@ -130,6 +137,7 @@ const graphicDesign = [
       'Poster series translating forced labour compliance topics into clear, employee-facing visuals — published in PETRONAS Downstream\'s HSSE Heartbeat Edition #2 and distributed through the Downstream HSE Excellence SharePoint portal to operations staff.',
     formats: ['Awareness Posters', 'Compliance Design', 'Print-Ready'],
     tags: ['Social Awareness', 'HSSE Campaign', 'Corporate Comms'],
+    gallery: [] as string[],
   },
   {
     title: 'MSR Campaign Visual Suite',
@@ -139,6 +147,7 @@ const graphicDesign = [
       'Visual communications package for the Management System Review (MSR) Campaign — first corporate design project, produced to internal standards for the Transformation Office and distributed to stakeholders across PETRONAS Refinery & Trading.',
     formats: ['Campaign Design', 'Internal Comms', 'Corporate Branding'],
     tags: ['Campaign Design', 'Stakeholder Comms', 'Internship'],
+    gallery: [] as string[],
   },
 ]
 
@@ -361,19 +370,48 @@ export default function VideoDesign() {
                 key={d.title}
                 className="bg-white rounded-2xl border border-grey-light hover:border-gold/40 hover:shadow-md transition-all overflow-hidden"
               >
-                {/* Format chips header */}
-                <div className="bg-navy px-5 py-3 flex flex-wrap gap-1.5">
-                  {d.formats.map((f) => (
-                    <span
-                      key={f}
-                      className="text-[10px] font-semibold bg-gold/15 text-gold border border-gold/25 px-2.5 py-0.5 rounded-full"
-                    >
-                      {f}
-                    </span>
-                  ))}
-                </div>
+                {d.gallery.length > 0 ? (
+                  /* 2×2 image grid for cards with real work samples */
+                  <div className="grid grid-cols-2 gap-px bg-grey-light/40">
+                    {d.gallery.slice(0, 4).map((img, i) => (
+                      <div key={i} className="aspect-video bg-gray-50 overflow-hidden">
+                        <img
+                          src={img}
+                          alt={`${d.title} sample ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Format chips header for cards without images */
+                  <div className="bg-navy px-5 py-3 flex flex-wrap gap-1.5">
+                    {d.formats.map((f) => (
+                      <span
+                        key={f}
+                        className="text-[10px] font-semibold bg-gold/15 text-gold border border-gold/25 px-2.5 py-0.5 rounded-full"
+                      >
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <div className="p-5">
+                  {/* Format chips below image grid (only when gallery shown) */}
+                  {d.gallery.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {d.formats.map((f) => (
+                        <span
+                          key={f}
+                          className="text-[10px] font-semibold bg-navy/8 text-navy border border-navy/15 px-2.5 py-0.5 rounded-full"
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   {/* Scope callout */}
                   <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold bg-gold/8 border border-gold/20 px-3 py-1 rounded-full mb-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
