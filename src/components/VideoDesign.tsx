@@ -152,21 +152,11 @@ const graphicDesign = [
 
 const scriptDocs = [
   {
-    title: 'OJL Beta Pilot — Video Storyboard',
-    context: 'OJL Beta Pilot Testimonial Series · PETRONAS GLD',
-    desc: '6-page pre-production storyboard — camera directions, VO scripts, and action notes scene-by-scene for the OJL onboarding beta pilot video.',
-    type: 'pdf' as const,
-    src: '/documents/ojl-storyboard.pdf',
-    slides: [] as string[],
-  },
-  {
     title: 'Circular Economy — Animated Video Storyboard',
     context: 'Circular Economy Animation · PETRONAS',
-    desc: 'Full visual storyboard for the 2-minute animated Circular Economy awareness video — scene frames, VO copy, motion graphic notes, and character directions across 6 slides.',
-    type: 'slides' as const,
-    src: '',
+    desc: 'Visual storyboard for the 2-minute animated Circular Economy awareness video — scene frames, VO copy, motion graphic notes, and character directions.',
+    downloadSrc: '',
     slides: [
-      '/documents/circular-slides/slide-01.jpeg',
       '/documents/circular-slides/slide-02.jpeg',
       '/documents/circular-slides/slide-03.jpeg',
       '/documents/circular-slides/slide-04.jpeg',
@@ -175,12 +165,28 @@ const scriptDocs = [
     ],
   },
   {
-    title: 'Tech Women in PETRONAS — Production Structure & Rundown',
+    title: 'Storyboard — Tech Women in PETRONAS',
     context: 'Tech Women in PETRONAS Documentary · PETRONAS GLD · 2023',
-    desc: 'Production structure and shoot rundown for the TWP documentary series — host intro framework, scene sequencing, interview cues, and visual direction notes.',
-    type: 'pdf' as const,
-    src: '/documents/twp-structure-rundown.pdf',
-    slides: [] as string[],
+    desc: 'Pre-production storyboard for the TWP documentary — scene flow, host intro framework, interview cues, and visual direction across 4 pages.',
+    downloadSrc: '/documents/twp-storyboard.pdf',
+    slides: [
+      '/documents/twp-storyboard-slides/page-01.jpeg',
+      '/documents/twp-storyboard-slides/page-02.jpeg',
+      '/documents/twp-storyboard-slides/page-03.jpeg',
+      '/documents/twp-storyboard-slides/page-04.jpeg',
+    ],
+  },
+  {
+    title: 'Storyboard — OJL Onboarding Beta Video',
+    context: 'OJL Beta Pilot Testimonial Series · PETRONAS GLD',
+    desc: 'Scene-by-scene storyboard for the OJL Beta pilot video — camera directions, VO scripts, and action notes for each scene.',
+    downloadSrc: '/documents/ojl-storyboard.pdf',
+    slides: [
+      '/documents/ojl-slides/page-01.jpeg',
+      '/documents/ojl-slides/page-02.jpeg',
+      '/documents/ojl-slides/page-03.jpeg',
+      '/documents/ojl-slides/page-04.jpeg',
+    ],
   },
 ]
 
@@ -287,15 +293,13 @@ function ScriptDocCard({
   title,
   context,
   desc,
-  type,
-  src,
+  downloadSrc,
   slides,
 }: {
   title: string
   context: string
   desc: string
-  type: 'pdf' | 'slides'
-  src: string
+  downloadSrc: string
   slides: string[]
 }) {
   const [slideIdx, setSlideIdx] = useState(0)
@@ -311,9 +315,9 @@ function ScriptDocCard({
           <h4 className="text-sm font-bold text-navy leading-snug">{title}</h4>
           <p className="text-xs text-grey-muted mt-1 leading-relaxed">{desc}</p>
         </div>
-        {src && (
+        {downloadSrc && (
           <a
-            href={src}
+            href={downloadSrc}
             download
             target="_blank"
             rel="noreferrer"
@@ -327,34 +331,25 @@ function ScriptDocCard({
         )}
       </div>
 
-      {/* PDF viewer */}
-      {type === 'pdf' && src && (
-        <iframe
-          src={src}
-          title={title}
-          className="w-full border-0 block"
-          style={{ height: '560px' }}
-        />
-      )}
-
-      {/* Slide carousel */}
-      {type === 'slides' && slides.length > 0 && (
-        <div className="relative bg-gray-50 group/sdoc" style={{ height: '500px' }}>
+      {/* Image carousel viewer */}
+      {slides.length > 0 && (
+        <div className="relative bg-gray-50 group/sdoc" style={{ minHeight: '480px', maxHeight: '600px' }}>
           <img
             key={slideIdx}
             src={slides[slideIdx]}
-            alt={`${title} — slide ${slideIdx + 1}`}
+            alt={`${title} — page ${slideIdx + 1}`}
             className="w-full h-full object-contain"
+            style={{ display: 'block', maxHeight: '600px' }}
           />
           {slides.length > 1 && (
             <>
-              <button onClick={prevSlide} aria-label="Previous slide"
+              <button onClick={prevSlide} aria-label="Previous page"
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover/sdoc:opacity-100 transition-opacity">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-              <button onClick={nextSlide} aria-label="Next slide"
+              <button onClick={nextSlide} aria-label="Next page"
                 className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover/sdoc:opacity-100 transition-opacity">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -362,7 +357,7 @@ function ScriptDocCard({
               </button>
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
                 {slides.map((_, i) => (
-                  <button key={i} onClick={() => setSlideIdx(i)} aria-label={`Slide ${i + 1}`}
+                  <button key={i} onClick={() => setSlideIdx(i)} aria-label={`Page ${i + 1}`}
                     className={`rounded-full transition-all duration-200 ${i === slideIdx ? 'w-5 h-2 bg-navy' : 'w-2 h-2 bg-navy/30 hover:bg-navy/60'}`} />
                 ))}
               </div>
