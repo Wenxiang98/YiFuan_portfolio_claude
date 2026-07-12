@@ -1,3 +1,5 @@
+import { useState, useCallback } from 'react'
+
 const cases = [
   {
     company: 'Allianz Malaysia',
@@ -13,6 +15,8 @@ const cases = [
     campaigns: ['Experience10 × 4 Editions', 'HealthAssured Conversion', 'Malaysia Day', 'Allianz Carnival JB', 'Voice of Allianz NPS', 'Allianz 25th Anniversary'],
     highlight: 'First WhatsApp Broadcast channel at Allianz — built from scratch',
     featured: true,
+    // Add your banner image paths here (place images in public/banners/)
+    banners: [] as string[],
   },
   {
     company: 'Allianz Malaysia',
@@ -28,6 +32,7 @@ const cases = [
     campaigns: [],
     highlight: '',
     featured: false,
+    banners: [] as string[],
   },
   {
     company: 'Allianz Malaysia',
@@ -43,6 +48,7 @@ const cases = [
     campaigns: [],
     highlight: '',
     featured: false,
+    banners: [] as string[],
   },
   {
     company: 'PETRONAS GLD',
@@ -57,6 +63,7 @@ const cases = [
     campaigns: [],
     highlight: '',
     featured: true,
+    banners: [] as string[],
   },
   {
     company: 'PETRONAS GLD',
@@ -72,6 +79,7 @@ const cases = [
     campaigns: [],
     highlight: '',
     featured: false,
+    banners: [] as string[],
   },
   {
     company: 'PETRONAS GLD',
@@ -86,12 +94,83 @@ const cases = [
     campaigns: [],
     highlight: '',
     featured: false,
+    banners: [] as string[],
   },
 ]
 
 const badgeStyle: Record<string, string> = {
   allianz: 'bg-blue-50 text-blue-800 border-blue-200',
   petronas: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+}
+
+function BannerCarousel({ images }: { images: string[] }) {
+  const [idx, setIdx] = useState(0)
+
+  const prev = useCallback(() => setIdx((i) => (i - 1 + images.length) % images.length), [images.length])
+  const next = useCallback(() => setIdx((i) => (i + 1) % images.length), [images.length])
+
+  if (images.length === 0) {
+    return (
+      <div className="w-full h-44 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
+        <p className="text-xs text-grey-muted/60">[ Add campaign banners — see banners[] in Projects.tsx ]</p>
+      </div>
+    )
+  }
+
+  return (
+    <div className="relative w-full h-44 rounded-xl overflow-hidden mb-4 bg-grey-light group/carousel">
+      {/* Slides */}
+      <img
+        key={idx}
+        src={images[idx]}
+        alt={`Campaign banner ${idx + 1}`}
+        className="w-full h-full object-cover object-center transition-opacity duration-300"
+      />
+
+      {/* Prev / Next arrows — visible on hover */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            aria-label="Previous banner"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-150"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next banner"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-150"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dot indicators */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`Go to banner ${i + 1}`}
+                className={`rounded-full transition-all duration-200 ${
+                  i === idx ? 'w-4 h-1.5 bg-white' : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Slide counter */}
+          <div className="absolute top-2 right-2 bg-black/40 text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+            {idx + 1} / {images.length}
+          </div>
+        </>
+      )}
+    </div>
+  )
 }
 
 export default function Projects() {
@@ -138,10 +217,7 @@ export default function Projects() {
               key={c.title}
               className="group border border-grey-light rounded-2xl p-6 hover:border-gold/40 hover:shadow-lg transition-all duration-200 bg-white"
             >
-              {/* Image placeholder for campaign visuals */}
-              <div className="w-full h-28 bg-grey-light/50 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
-                <p className="text-xs text-grey-muted/60">[ Add campaign screenshot / visual ]</p>
-              </div>
+              <BannerCarousel images={c.banners} />
 
               {c.highlight && (
                 <div className="flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-xl px-3 py-2 mb-3">
