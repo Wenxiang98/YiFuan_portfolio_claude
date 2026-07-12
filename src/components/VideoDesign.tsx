@@ -105,32 +105,40 @@ const otherVideos = [
 
 const graphicDesign = [
   {
-    title: 'Forced Labour Awareness Posters',
-    client: 'PETRONAS Downstream · 2022',
-    description:
-      'Series of awareness posters produced for Downstream HSSE Heartbeat Edition #2, published on the Downstream HSE Excellence SharePoint portal.',
-    tags: ['Social Awareness', 'HSSE Campaign', 'SharePoint'],
-  },
-  {
-    title: 'MSR Campaign Communications',
-    client: 'PETRONAS Refinery & Trading · 2021',
-    description:
-      'Visual communications materials for the Management System Review (MSR) Campaign — internship project for the Transformation Office.',
-    tags: ['Campaign Design', 'Internal Comms', 'Internship'],
-  },
-  {
     title: 'myLearningX Festival & Campaign Banners',
     client: 'PETRONAS GLD · 2022–2024',
+    scope: '2-year engagement · Platform-wide distribution',
     description:
-      'Campaign banners and posters for national and global festival celebrations on myLearningX — Raya, Chinese New Year, and cultural events — aligning learning content with cultural moments.',
-    tags: ['Campaign Banners', 'Cultural Events', 'myLearningX'],
+      'Sustained two-year design output for PETRONAS GLD — recurring cultural festival banners (Hari Raya, Chinese New Year, Deepavali, Maulidur Rasul), campaign launch materials, and learning awareness posters distributed to PETRONAS employees nationwide via the myLearningX platform.',
+    formats: ['Festival Banners', 'Campaign Posters', 'Digital Assets'],
+    tags: ['Campaign Design', 'Cultural Localisation', 'myLearningX'],
   },
   {
-    title: 'PETRONAS Digital Day 2023 Collaterals',
+    title: 'PETRONAS Digital Day 2023 — Event Collaterals',
     client: 'PETRONAS GLD · 2023',
+    scope: '1,500+ visitors · 1,000+ platform activations',
     description:
-      'Full suite of event graphics and collaterals for PETRONAS Digital Day 2023, supporting 1,500+ visitors and 1,000+ platform activations over 2 days.',
-    tags: ['Event Graphics', 'Digital Day 2023'],
+      'End-to-end visual identity for PETRONAS Digital Day 2023 — event badges, pull-up banners, on-site signage, and promotional materials. Coordinated graphic production across departments to deliver a cohesive look for a high-visibility 2-day internal flagship event.',
+    formats: ['Event Signage', 'Print Collaterals', 'Promotional Materials'],
+    tags: ['Event Graphics', 'Brand Collateral', 'Stakeholder Event'],
+  },
+  {
+    title: 'HSSE Forced Labour Awareness Posters',
+    client: 'PETRONAS Downstream · 2022',
+    scope: 'Published · HSSE Heartbeat Newsletter & SharePoint',
+    description:
+      'Poster series translating forced labour compliance topics into clear, employee-facing visuals — published in PETRONAS Downstream\'s HSSE Heartbeat Edition #2 and distributed through the Downstream HSE Excellence SharePoint portal to operations staff.',
+    formats: ['Awareness Posters', 'Compliance Design', 'Print-Ready'],
+    tags: ['Social Awareness', 'HSSE Campaign', 'Corporate Comms'],
+  },
+  {
+    title: 'MSR Campaign Visual Suite',
+    client: 'PETRONAS Refinery & Trading · 2021',
+    scope: 'Internship · Transformation Office',
+    description:
+      'Visual communications package for the Management System Review (MSR) Campaign — first corporate design project, produced to internal standards for the Transformation Office and distributed to stakeholders across PETRONAS Refinery & Trading.',
+    formats: ['Campaign Design', 'Internal Comms', 'Corporate Branding'],
+    tags: ['Campaign Design', 'Stakeholder Comms', 'Internship'],
   },
 ]
 
@@ -351,30 +359,41 @@ export default function VideoDesign() {
             {graphicDesign.map((d) => (
               <div
                 key={d.title}
-                className="bg-white rounded-2xl p-6 border border-grey-light hover:border-gold/30 hover:shadow-sm transition-all"
+                className="bg-white rounded-2xl border border-grey-light hover:border-gold/40 hover:shadow-md transition-all overflow-hidden"
               >
-                {/* Design screenshot placeholder — replace with actual image */}
-                <div className="w-full aspect-video bg-grey-light/60 border border-dashed border-grey-light rounded-xl flex items-center justify-center mb-4">
-                  <div className="text-center">
-                    <div className="text-2xl mb-1">🖼️</div>
-                    <p className="text-xs text-grey-muted/60">[ Add design screenshot ]</p>
-                  </div>
-                </div>
-
-                <div className="mb-3">
-                  <h4 className="text-sm font-bold text-navy">{d.title}</h4>
-                  <p className="text-xs text-gold/80 font-medium mt-0.5">{d.client}</p>
-                </div>
-                <p className="text-xs text-grey-muted leading-relaxed mb-3">{d.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {d.tags.map((tag) => (
+                {/* Format chips header */}
+                <div className="bg-navy px-5 py-3 flex flex-wrap gap-1.5">
+                  {d.formats.map((f) => (
                     <span
-                      key={tag}
-                      className="text-xs bg-cream border border-grey-light text-grey-muted px-2.5 py-1 rounded-full"
+                      key={f}
+                      className="text-[10px] font-semibold bg-gold/15 text-gold border border-gold/25 px-2.5 py-0.5 rounded-full"
                     >
-                      {tag}
+                      {f}
                     </span>
                   ))}
+                </div>
+
+                <div className="p-5">
+                  {/* Scope callout */}
+                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold bg-gold/8 border border-gold/20 px-3 py-1 rounded-full mb-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                    {d.scope}
+                  </div>
+
+                  <h4 className="text-sm font-bold text-navy mb-0.5">{d.title}</h4>
+                  <p className="text-xs text-gold/80 font-medium mb-3">{d.client}</p>
+                  <p className="text-xs text-grey-muted leading-relaxed mb-4">{d.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {d.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs bg-cream border border-grey-light text-grey-muted px-2.5 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
