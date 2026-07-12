@@ -150,6 +150,40 @@ const graphicDesign = [
   },
 ]
 
+const scriptDocs = [
+  {
+    title: 'OJL Beta Pilot — Video Storyboard',
+    context: 'OJL Beta Pilot Testimonial Series · PETRONAS GLD',
+    desc: '6-page pre-production storyboard — camera directions, VO scripts, and action notes scene-by-scene for the OJL onboarding beta pilot video.',
+    type: 'pdf' as const,
+    src: '/documents/ojl-storyboard.pdf',
+    slides: [] as string[],
+  },
+  {
+    title: 'Circular Economy — Animated Video Storyboard',
+    context: 'Circular Economy Animation · PETRONAS',
+    desc: 'Full visual storyboard for the 2-minute animated Circular Economy awareness video — scene frames, VO copy, motion graphic notes, and character directions across 6 slides.',
+    type: 'slides' as const,
+    src: '',
+    slides: [
+      '/documents/circular-slides/slide-01.jpeg',
+      '/documents/circular-slides/slide-02.jpeg',
+      '/documents/circular-slides/slide-03.jpeg',
+      '/documents/circular-slides/slide-04.jpeg',
+      '/documents/circular-slides/slide-05.jpeg',
+      '/documents/circular-slides/slide-06.jpeg',
+    ],
+  },
+  {
+    title: 'Tech Women in PETRONAS — Production Structure & Rundown',
+    context: 'Tech Women in PETRONAS Documentary · PETRONAS GLD · 2023',
+    desc: 'Production structure and shoot rundown for the TWP documentary series — host intro framework, scene sequencing, interview cues, and visual direction notes.',
+    type: 'pdf' as const,
+    src: '/documents/twp-structure-rundown.pdf',
+    slides: [] as string[],
+  },
+]
+
 const productionTools = [
   'Adobe Premiere Pro',
   'After Effects',
@@ -244,6 +278,100 @@ function DesignCarousel({ images, title }: { images: string[]; title: string }) 
             {idx + 1} / {images.length}
           </div>
         </>
+      )}
+    </div>
+  )
+}
+
+function ScriptDocCard({
+  title,
+  context,
+  desc,
+  type,
+  src,
+  slides,
+}: {
+  title: string
+  context: string
+  desc: string
+  type: 'pdf' | 'slides'
+  src: string
+  slides: string[]
+}) {
+  const [slideIdx, setSlideIdx] = useState(0)
+  const prevSlide = useCallback(() => setSlideIdx((i) => (i - 1 + slides.length) % slides.length), [slides.length])
+  const nextSlide = useCallback(() => setSlideIdx((i) => (i + 1) % slides.length), [slides.length])
+
+  return (
+    <div className="bg-white rounded-2xl border border-grey-light overflow-hidden">
+      {/* Card header */}
+      <div className="px-6 py-5 border-b border-grey-light flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <p className="text-gold text-[10px] font-semibold uppercase tracking-widest mb-0.5">{context}</p>
+          <h4 className="text-sm font-bold text-navy leading-snug">{title}</h4>
+          <p className="text-xs text-grey-muted mt-1 leading-relaxed">{desc}</p>
+        </div>
+        {src && (
+          <a
+            href={src}
+            download
+            target="_blank"
+            rel="noreferrer"
+            className="flex-shrink-0 flex items-center gap-1.5 text-[11px] font-semibold bg-cream text-navy border border-grey-light px-3 py-1.5 rounded-full hover:border-gold/50 hover:text-gold transition-colors"
+          >
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg>
+            Download
+          </a>
+        )}
+      </div>
+
+      {/* PDF viewer */}
+      {type === 'pdf' && src && (
+        <iframe
+          src={src}
+          title={title}
+          className="w-full border-0 block"
+          style={{ height: '560px' }}
+        />
+      )}
+
+      {/* Slide carousel */}
+      {type === 'slides' && slides.length > 0 && (
+        <div className="relative bg-gray-50 group/sdoc" style={{ height: '500px' }}>
+          <img
+            key={slideIdx}
+            src={slides[slideIdx]}
+            alt={`${title} — slide ${slideIdx + 1}`}
+            className="w-full h-full object-contain"
+          />
+          {slides.length > 1 && (
+            <>
+              <button onClick={prevSlide} aria-label="Previous slide"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover/sdoc:opacity-100 transition-opacity">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button onClick={nextSlide} aria-label="Next slide"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover/sdoc:opacity-100 transition-opacity">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                {slides.map((_, i) => (
+                  <button key={i} onClick={() => setSlideIdx(i)} aria-label={`Slide ${i + 1}`}
+                    className={`rounded-full transition-all duration-200 ${i === slideIdx ? 'w-5 h-2 bg-navy' : 'w-2 h-2 bg-navy/30 hover:bg-navy/60'}`} />
+                ))}
+              </div>
+              <div className="absolute top-3 right-3 bg-navy/80 text-white text-[10px] font-medium px-2.5 py-1 rounded-full">
+                {slideIdx + 1} / {slides.length}
+              </div>
+            </>
+          )}
+        </div>
       )}
     </div>
   )
@@ -442,6 +570,21 @@ export default function VideoDesign() {
                 <p className="text-xs text-grey-muted leading-relaxed mb-2">{v.note}</p>
                 <p className="text-xs text-gold/80 font-medium">{v.meta}</p>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Scripts & Storyboards */}
+        <div className="mb-16">
+          <p className="text-navy text-xs font-bold uppercase tracking-widest mb-2">
+            Scripts & Storyboards
+          </p>
+          <p className="text-grey-muted text-xs mb-6">
+            Pre-production documents — storyboards, shoot rundowns, and scripting frameworks.
+          </p>
+          <div className="flex flex-col gap-6">
+            {scriptDocs.map((doc) => (
+              <ScriptDocCard key={doc.title} {...doc} />
             ))}
           </div>
         </div>
