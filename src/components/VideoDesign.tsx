@@ -176,6 +176,21 @@ const graphicDesign = [
     ] as string[],
   },
   {
+    title: 'MSR Implementation Review — OU Congratulations',
+    client: 'PETRONAS Refinery & Trading · 2021',
+    scope: 'Internship · Transformation Office · Multi-OU',
+    description:
+      'Congratulatory visuals sent to Operating Units (PP(T)SB, MRCSB, EO) upon completing their OEMS Implementation Reviews with excellent results — celebrating their commitment and achievement through the Plan-Do-Check-Act cycle.',
+    formats: ['Congratulations Cards', 'Internal Comms', 'Digital Distribution'],
+    tags: ['MSR', 'Implementation Review', 'OU Congratulations'],
+    gallery: [
+      '/graphic-design/msr-ir-congrats-pptsb-fish.jpeg',
+      '/graphic-design/msr-ir-congrats-eo-tulips.jpeg',
+      '/graphic-design/msr-ir-congrats-mrcsb-sandals.jpeg',
+      '/graphic-design/msr-ir-congrats-pptsb-firefly.jpeg',
+    ] as string[],
+  },
+  {
     title: 'OE R2 Multi-OU Internal Comms',
     client: 'PETRONAS R&T Transformation Office · 2021',
     scope: 'Internship · Multi-OU Distribution',
