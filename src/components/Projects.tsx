@@ -15,8 +15,13 @@ const cases = [
     campaigns: ['Experience10 × 4 Editions', 'HealthAssured Conversion', 'Malaysia Day', 'Allianz Carnival JB', 'Voice of Allianz NPS', 'Allianz 25th Anniversary'],
     highlight: 'First WhatsApp Broadcast channel at Allianz — built from scratch',
     featured: true,
-    // Add your banner image paths here (place images in public/banners/)
-    banners: [] as string[],
+    banners: [
+      '/banners/banner-meet-the-stars.jpeg',
+      '/banners/banner-meet-the-star-2.jpeg',
+      '/banners/banner-celebrate-together.jpeg',
+      '/banners/banner-malaysia-day.jpeg',
+      '/banners/banner-25th-anniversary.jpeg',
+    ],
   },
   {
     company: 'Allianz Malaysia',
