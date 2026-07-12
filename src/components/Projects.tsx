@@ -21,6 +21,10 @@ const cases = [
       '/banners/banner-celebrate-together.jpeg',
       '/banners/banner-malaysia-day.jpeg',
       '/banners/banner-25th-anniversary.jpeg',
+      '/banners/banner-voice-of-allianz.jpeg',
+      '/banners/banner-rate-allianz-10.jpeg',
+      '/banners/banner-rate-us-10.jpeg',
+      '/banners/banner-badminton-2026.jpeg',
     ],
   },
   {
