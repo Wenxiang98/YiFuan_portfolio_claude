@@ -58,7 +58,7 @@ function SlideFrame({
             <div className="w-3 h-3 rounded-full bg-[#28C840]" />
           </div>
           <span className="text-[#888] text-[10px] font-medium mx-auto truncate">
-            Portfolio Deck v2 — PowerPoint
+            Allianz Malaysia — Campaign Report
           </span>
         </div>
         {/* Slide canvas */}
