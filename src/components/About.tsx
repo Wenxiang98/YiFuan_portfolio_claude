@@ -72,16 +72,19 @@ export default function About() {
             </div>
           </div>
 
-          {/* Bio text — task #10: positioning gap addressed */}
+          {/* Bio text */}
           <div>
-            <p className="text-grey-muted leading-relaxed mb-4">
-              I'm Yi Fuan — and I genuinely love the craft of communications. Not the corporate-speak version.
-              The kind that makes people stop scrolling, actually read, and walk away understanding something better.
-            </p>
-            <p className="text-grey-muted leading-relaxed mb-4">
+            {/* Opening pull-quote */}
+            <div className="border-l-[3px] border-gold pl-4 mb-6">
+              <p className="text-navy text-base leading-relaxed font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+                I'm Yi Fuan — and I genuinely love the craft of communications. Not the corporate-speak version.
+                The kind that makes people stop scrolling, actually read, and walk away understanding something better.
+              </p>
+            </div>
+            <p className="text-grey-muted leading-relaxed mb-4 text-justify hyphens-auto">
               My career spans strategic communications, stakeholder engagement, and brand-led campaign management across two of Malaysia's most recognised organisations. At PETRONAS, I handled internal communications, content strategy, and employee campaigns at scale. At Allianz Malaysia, I moved into customer-facing corporate communications — managing 10+ campaigns end-to-end, writing high-stakes regulatory correspondence, and representing the company's voice across digital and traditional channels.
             </p>
-            <p className="text-grey-muted leading-relaxed mb-8">
+            <p className="text-grey-muted leading-relaxed mb-8 text-justify hyphens-auto">
               Trilingual in English, Bahasa Malaysia, and Mandarin — which means I don't just translate words,
               I translate context. I work on both sides of the camera, love a good dashboard, and take unusual
               pride in making compliance letters feel less terrible.
