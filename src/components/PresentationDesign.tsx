@@ -58,7 +58,7 @@ function SlideFrame({
             <div className="w-3 h-3 rounded-full bg-[#28C840]" />
           </div>
           <span className="text-[#888] text-[10px] font-medium mx-auto truncate">
-            Allianz Malaysia — Campaign Report
+            Campaign Report Performance Tracking
           </span>
         </div>
         {/* Slide canvas */}
