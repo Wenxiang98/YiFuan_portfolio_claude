@@ -110,9 +110,6 @@ export default function PresentationDesign() {
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
             Allianz Malaysia · Campaign Communications
           </span>
-          <span className="inline-flex items-center gap-1.5 bg-cream border border-grey-light text-grey-muted text-xs font-medium px-3 py-1.5 rounded-full">
-            Confidential data anonymised
-          </span>
         </div>
 
         {/* Featured slide — full width */}
@@ -127,10 +124,6 @@ export default function PresentationDesign() {
           ))}
         </div>
 
-        {/* Bottom note */}
-        <p className="text-center text-xs text-grey-muted/70 mt-10">
-          Sensitive figures and internal distribution labels have been removed. Structural content and narrative design are intact.
-        </p>
       </div>
     </section>
   )
